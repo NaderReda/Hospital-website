@@ -1,21 +1,31 @@
-* text=auto eol=lf
+# --------------------------------------
+# Classify Laravel / PHP files correctly
+# --------------------------------------
 
-*.blade.php diff=html
-*.css diff=css
-*.html diff=html
-*.md diff=markdown
-*.php diff=php
-
-/.github export-ignore
-CHANGELOG.md export-ignore
-.styleci.yml export-ignore
-
-# اعتبر كل ملفات PHP موجودة كـ PHP
+# PHP source files
 *.php linguist-language=PHP
+*.blade.php linguist-language=PHP
 
-# تجاهل ملفات vendor و node_modules من الإحصاء
+# Ignore vendor and node_modules from language stats
 /vendor/* linguist-vendored
 /node_modules/* linguist-vendored
+/public/* linguist-vendored
 
-# لو عندك Blade templates
-*.blade.php linguist-language=PHP
+# Config files (optional, can count as PHP)
+config/*.php linguist-language=PHP
+
+# Ignore migrations if you want (optional)
+/database/migrations/* linguist-vendored
+
+# Ignore storage and cache (optional)
+storage/* linguist-vendored
+bootstrap/cache/* linguist-vendored
+
+# Ignore front-end assets that aren’t part of code analysis
+/public/js/* linguist-vendored
+/public/css/* linguist-vendored
+/public/images/* linguist-vendored
+
+# Optional: classify JavaScript & CSS correctly if used in front-end
+*.js linguist-language=JavaScript
+*.css linguist-language=CSS
