@@ -9,3 +9,13 @@
 /.github export-ignore
 CHANGELOG.md export-ignore
 .styleci.yml export-ignore
+
+# اعتبر كل ملفات PHP موجودة كـ PHP
+*.php linguist-language=PHP
+
+# تجاهل ملفات vendor و node_modules من الإحصاء
+/vendor/* linguist-vendored
+/node_modules/* linguist-vendored
+
+# لو عندك Blade templates
+*.blade.php linguist-language=PHP
